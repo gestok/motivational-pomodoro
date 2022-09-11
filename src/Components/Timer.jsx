@@ -3,10 +3,10 @@ import { useContext } from "react";
 import PomodoroContext from "../PomodoroContext";
 
 const Timer = () => {
-  const { timer, onSession, next } = useContext(PomodoroContext);
+  const { timer, hasSession, next } = useContext(PomodoroContext);
   return (
     <>
-      <TimerLabel>{onSession ? "Time to focus!" : "Take a break!"}</TimerLabel>
+      <TimerLabel>{hasSession ? "Time to focus!" : "Take a break!"}</TimerLabel>
       <Countdown>
         {timer === 3600
           ? "60:00"

@@ -10,7 +10,7 @@ const ActionButtons = () => {
     setSessionLength,
     playing,
     setPlaying,
-    setOnSession,
+    setHasSession,
     setHasSettings,
     setNext,
     next,
@@ -27,7 +27,7 @@ const ActionButtons = () => {
     setPlaying(false);
     setNext(false);
     setTimeout(() => {
-      setOnSession(true);
+      setHasSession(true);
       setBreakLength(5 * 60);
       setSessionLength(25 * 60);
       setHasSettings(false);

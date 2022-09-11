@@ -7,12 +7,12 @@ import ActionButtons from "./ActionButtons";
 import CoffeeBreak from "./CoffeeBreak";
 
 const PomodoroScreen = () => {
-  const { motivating, onSession } = useContext(PomodoroContext);
+  const { motivating, hasSession } = useContext(PomodoroContext);
   return (
     <PomodoroWrapper>
       <ActionButtons />
       <Timer />
-      {motivating && onSession ? <MotivationalMessages /> : !onSession && <CoffeeBreak/>}
+      {motivating && hasSession ? <MotivationalMessages /> : !hasSession && <CoffeeBreak/>}
     </PomodoroWrapper>
   );
 };

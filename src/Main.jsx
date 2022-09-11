@@ -6,14 +6,14 @@ import Settings from "./Components/Settings";
 import guitar from './Assets/guitar.mp3';
 
 const Main = () => {
-  const { hasSettings, next, onSession } = useContext(PomodoroContext);
+  const { hasSettings, next, hasSession } = useContext(PomodoroContext);
   return (
     <>
       {hasSettings ? <PomodoroScreen /> : <Settings />}
       <DecalOverlay />
-      <Decal onSession={onSession} />
-      <Decal onSession={onSession} className="two" />
-      <Expander onSession={onSession} expanding={next} />
+      <Decal hasSession={hasSession} />
+      <Decal hasSession={hasSession} className="two" />
+      <Expander hasSession={hasSession} expanding={next} />
       <audio type="audio/mp3" src={guitar} id="guitar" />
     </>
   );
@@ -21,7 +21,7 @@ const Main = () => {
 export default Main;
 
 const Expander = styled.div`
-  background: ${(props) => (props.onSession ? "var(--c-blue)" : "#4caf50")};
+  background: ${(props) => (props.hasSession ? "var(--c-blue)" : "#4caf50")};
   border-radius: ${(props) => (props.expanding ? "32px" : "40% 55% 50% 53%")};
   position: absolute;
   left: ${(props) => (props.expanding ? "0%" : "35%")};
@@ -56,7 +56,7 @@ const DecalOverlay = styled.div`
 `;
 
 const Decal = styled.div`
-  background: ${(props) => (props.onSession ? "var(--c-blue)" : "#4caf50")};
+  background: ${(props) => (props.hasSession ? "var(--c-blue)" : "#4caf50")};
   border-radius: 40% 55% 50% 53%;
   position: absolute;
   left: 48%;

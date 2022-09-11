@@ -6,7 +6,7 @@ export const PomodoroContextProvider = ({ children }) => {
   const [breakLength, setBreakLength] = useState(5 * 60);
   const [sessionLength, setSessionLength] = useState(25 * 60);
   const [timer, setTimer] = useState(sessionLength);
-  const [onSession, setOnSession] = useState(true);
+  const [hasSession, setHasSession] = useState(true);
   const [playing, setPlaying] = useState(false);
   const [hasSettings, setHasSettings] = useState(false);
   const [next, setNext] = useState(false);
@@ -24,10 +24,10 @@ export const PomodoroContextProvider = ({ children }) => {
       document.getElementById('guitar').currentTime = 0;
       document.getElementById('guitar').play();
     }
-    if (onSession) setTimer(breakLength);
+    if (hasSession) setTimer(breakLength);
     else setTimer(sessionLength);
-    setOnSession(!onSession);
-  }, [onSession, breakLength, sessionLength, enabledSound]);
+    setHasSession(!hasSession);
+  }, [hasSession, breakLength, sessionLength, enabledSound]);
 
   useEffect(() => {
     if (!playing) return;
@@ -49,8 +49,8 @@ export const PomodoroContextProvider = ({ children }) => {
         setSessionLength,
         timer,
         setTimer,
-        onSession,
-        setOnSession,
+        hasSession,
+        setHasSession,
         playing,
         setPlaying,
         hasSettings,
