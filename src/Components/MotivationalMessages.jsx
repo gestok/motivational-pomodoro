@@ -50,7 +50,7 @@ const motivationalPhrases = [
 const MotivationalMessages = () => {
   const { timer, next } = useContext(PomodoroContext);
   const [updatingArray, setUpdatingArray] = useState([]);
-  const [translate, setTranslate] = useState(0);
+  const [translate, setTranslate] = useState(-1);
   const [cropped, setCropped] = useState(0);
 
   useEffect(() => {
@@ -102,7 +102,7 @@ const VerticalCarousel = styled.div`
     top: 0;
     background: linear-gradient(180deg, var(--c-blue), transparent 30%);
     z-index: 1;
-    border-radius: 50px;
+    border-radius: 0 0 50px 50px;
   }
 `;
 
